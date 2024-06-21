@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container password-container">
+        <div className="copy-section">
+          <InputGroup>
+            <Form.Control
+              placeholder="P4$5W0rD!"
+              aria-label="Amount (to the nearest dollar)"
+            />
+            <InputGroup.Text>
+              <img src="./icon-copy.svg" />
+            </InputGroup.Text>
+          </InputGroup>
+        </div>
+        <div className="generate-section"></div>
+      </div>
     </div>
   );
 }

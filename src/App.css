@@ -1,38 +1,69 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-family: "JetBrains Mono", monospace;
 }
 
-.App-link {
-  color: #61dafb;
+.password-container {
+  width: 540px !important;
+  height: 632px;
+  max-width: 100%;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.copy-section {
+  height: 80px;
+  background-color: #24232c;
+}
+
+.generate-section {
+  height: 528px;
+  background-color: #24232c;
+}
+
+.copy-section .input-group {
+  height: 100%;
+}
+
+.copy-section input,
+.copy-section span {
+  background-color: #24232c;
+  border-color: #24232c;
+}
+
+.copy-section input:focus {
+  background-color: #24232c;
+  color: #e6e5ea;
+  border: none;
+  box-shadow: none;
+}
+
+.copy-section input {
+  color: #e6e5ea;
+  font-size: 32px;
+  font-weight: bold;
+  padding-left: 32px;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  padding-right: 0;
+}
+
+.copy-section span {
+  padding-right: 32px;
+  padding-left: 0;
+}
+
+.copy-section input::placeholder {
+  color: #e6e5ea;
+  opacity: 0.25;
+}
+
+.copy-section img:hover {
+  filter: invert(0%) sepia(95%) saturate(21%) hue-rotate(2deg) brightness(101%)
+    contrast(107%);
+  cursor: pointer;
 }

@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 function App() {
   return (
     <div className="App">
-      <div className="container password-container">
+      <div className="password-container">
         <div className="copy-section">
           <InputGroup>
             <Form.Control
@@ -17,7 +17,12 @@ function App() {
             </InputGroup.Text>
           </InputGroup>
         </div>
-        <div className="generate-section"></div>
+        <div className="generate-section">
+          <div className="character-length">
+            <p>Character Length</p>
+            <input type="text" value={0} />
+          </div>
+        </div>
       </div>
     </div>
   );

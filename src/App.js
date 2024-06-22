@@ -46,7 +46,6 @@ function App() {
   };
 
   const handleCopied = () => {
-    console.log("coppied!!");
     setCopied(true);
   };
   return (
@@ -54,7 +53,7 @@ function App() {
       <h1 className="title">Password Generator</h1>
       <div className="password-container">
         <div className="copy-section">
-          <InputGroup>
+          <InputGroup className="align-items-center">
             <Form.Control
               placeholder="P4$5W0rD!"
               aria-label="Amount (to the nearest dollar)"

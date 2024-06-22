@@ -272,10 +272,11 @@ input[type="range"]:focus::-moz-range-thumb {
   color: #a4ffaf;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 450px) {
   .copy-section input {
     font-size: 24px;
     padding-left: 16px;
+    letter-spacing: -0.05em;
   }
   .copy-section span {
     padding-right: 16px;
@@ -295,5 +296,9 @@ input[type="range"]:focus::-moz-range-thumb {
   .copy-image {
     width: 17.5px;
     height: 20px;
+  }
+  .strength .levels p {
+    font-size: 18px;
+    letter-spacing: -0.05em;
   }
 }

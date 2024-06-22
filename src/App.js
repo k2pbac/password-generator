@@ -4,10 +4,13 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { css } from "@emotion/css";
 import generatePassword from "./helper";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function App() {
   const [charLength, setCharLength] = useState(0);
   const [background, setBackground] = useState("");
+  const [levelBackground, setLevelBackground] = useState("transparent");
+  const [levelValue, setLevelValue] = useState(-1);
   const [password, setPassword] = useState("");
   const [filters, setFilters] = useState({
     uppercase: false,
@@ -15,26 +18,40 @@ function App() {
     numbers: false,
     symbols: false,
   });
+  const [copied, setCopied] = useState(false);
+  const levels = ["TOO WEAK!", "WEAK", "MEDIUM", "STRONG"];
+  const backgroundColors = ["#F64A4A", "#FB7C58", "#F8CD65", "#A4FFAF"];
   const handleChange = (e) => {
     setCharLength(e.target.value);
     const tempSliderValue = e.target.value;
     const progress = (tempSliderValue / 20) * 100;
     const background = `linear-gradient(to right, #a4ffaf ${progress}%, #18171F ${progress}%)`;
     setBackground(background);
+    setLevelValue(-1);
   };
   const handleCheck = (e) => {
     setFilters((prev) => ({ ...prev, [e.target.name]: e.target.checked }));
+    setLevelValue(-1);
   };
   const handleImageCheck = (label) => {
     setFilters((prev) => ({ ...prev, [label]: !prev[label] }));
+    setLevelValue(-1);
   };
 
   const handleGenerator = () => {
+    const level = Object.values(filters).filter((el) => !!el).length - 1;
     setPassword(generatePassword(charLength, filters));
+    setLevelValue(level);
+    setLevelBackground(backgroundColors[level]);
   };
 
+  const handleCopied = () => {
+    console.log("coppied!!");
+    setCopied(true);
+  };
   return (
     <div className="App">
+      <h1 className="title">Password Generator</h1>
       <div className="password-container">
         <div className="copy-section">
           <InputGroup>
@@ -44,9 +61,13 @@ function App() {
               value={password}
               readOnly
             />
-            <InputGroup.Text>
-              <img src="./icon-copy.svg" />
-            </InputGroup.Text>
+            {copied ? <span className="copied-text">COPIED</span> : null}
+
+            <CopyToClipboard text={password} onCopy={() => handleCopied()}>
+              <InputGroup.Text>
+                <img className="copy-image" src="./icon-copy.svg" />
+              </InputGroup.Text>
+            </CopyToClipboard>
           </InputGroup>
         </div>
         <div className="generate-section">
@@ -136,14 +157,33 @@ function App() {
           <div className="strength">
             <p>STRENGTH</p>
             <div className="levels">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              {levelValue !== -1 ? (
+                <p>{charLength <= 5 ? levels[0] : levels[levelValue]}</p>
+              ) : null}
+              <span
+                style={{
+                  background: `${levelValue >= 0 ? levelBackground : ""}`,
+                }}
+              ></span>
+              <span
+                style={{
+                  background: `${levelValue >= 1 ? levelBackground : ""}`,
+                }}
+              ></span>
+              <span
+                style={{
+                  background: `${levelValue >= 2 ? levelBackground : ""}`,
+                }}
+              ></span>
+              <span
+                style={{
+                  background: `${levelValue >= 3 ? levelBackground : ""}`,
+                }}
+              ></span>
             </div>
           </div>
           <button onClick={handleGenerator} className="generate-btn">
-            GENERATE{" "}
+            GENERATE
             <span>
               <img src="./icon-arrow-right.svg" alt="right-arrow"></img>
             </span>

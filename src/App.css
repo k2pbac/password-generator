@@ -80,14 +80,15 @@
   color: #e6e5ea;
   font-size: 32px;
   font-weight: bold;
-  padding-left: 32px;
+  padding-left: 20px;
   padding-top: 19px;
   padding-bottom: 19px;
   padding-right: 0;
+  letter-spacing: -0.05em;
 }
 
 .copy-section span {
-  padding-right: 32px;
+  padding-right: 20px;
   padding-left: 0;
 }
 
@@ -268,15 +269,15 @@ input[type="range"]:focus::-moz-range-thumb {
     brightness(103%) contrast(101%);
 }
 
-.copied-text {
+.copy-section .copied-text {
   color: #a4ffaf;
+  padding-right: 10px !important;
 }
 
 @media only screen and (max-width: 450px) {
   .copy-section input {
     font-size: 24px;
     padding-left: 16px;
-    letter-spacing: -0.05em;
   }
   .copy-section span {
     padding-right: 16px;

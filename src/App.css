@@ -26,12 +26,16 @@
   flex-direction: column;
   align-items: center;
   padding: 24px 32px;
+  gap: 28px;
 }
 .generate-section p {
   font-size: 18px;
   font-weight: 700;
-  display: inline;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 .generate-section .character-length {
@@ -42,20 +46,11 @@
   max-width: 100%;
 }
 
-.generate-section .character-length input {
-  background-color: #24232c;
+.generate-section .character-length span {
   color: #a4ffaf;
-  border: none;
   font-size: 32px;
   font-weight: 700;
   display: inline-block;
-  width: 300px;
-  text-align: end;
-  outline: none !important;
-}
-.generate-section .character-length input:focus {
-  box-shadow: none;
-  border: none;
 }
 
 .copy-section .input-group {
@@ -99,4 +94,158 @@
   filter: invert(0%) sepia(95%) saturate(21%) hue-rotate(2deg) brightness(101%)
     contrast(107%);
   cursor: pointer;
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #18171f;
+  border-radius: 0rem;
+  height: 8px;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -10px; /* Centers thumb on the track */
+  background-color: #e6e5ea;
+  border-radius: 20px;
+  height: 28px;
+  width: 28px;
+}
+input[type="range"]::-webkit-slider-thumb:hover,
+input[type="range"]:focus::-webkit-slider-thumb {
+  background-color: #18171f;
+  outline: 2px solid #a4ffaf;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #18171f;
+  border-radius: 0rem;
+  height: 8px;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #e6e5ea;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 20px;
+  height: 28px;
+  width: 28px;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  outline: 3px solid #e6e5ea;
+  outline-offset: 0.125rem;
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filters input.form-check-input {
+  border-radius: 0;
+  background: transparent;
+  margin-right: 18px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.filters .form-check-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.filters input.form-check-input:focus,
+.filters input.form-check-input:active {
+  outline: none;
+  box-shadow: none;
+  border-color: #e6e5ea;
+}
+.filters input.form-check-input:checked {
+  background-color: #a4ffaf;
+}
+
+.filters .form-check-input:not(:checked) {
+  background-color: transparent;
+}
+
+.icon-container {
+  position: relative;
+}
+.check-icon {
+  position: absolute;
+  top: 9px;
+  left: 4px;
+}
+
+.icon-container img {
+  cursor: pointer;
+}
+
+.strength {
+  display: flex;
+  align-items: center;
+  padding: 21px 31px;
+  width: 100%;
+  height: 72px;
+  background: #18171f;
+}
+
+.strength p {
+  color: #817d92;
+  font-size: 18px;
+  font-weight: 700;
+  align-items: center;
+}
+
+.strength .levels {
+  display: flex;
+  gap: 8px;
+}
+.strength .levels span {
+  width: 10px;
+  height: 28px;
+  display: inline-block;
+  border-color: #e6e5ea;
+  border: 2px solid;
+}
+
+.generate-btn {
+  width: 100%;
+  height: 65px;
+  background-color: #a4ffaf;
+  color: #24232c;
+  font-size: 18px;
+  font-weight: 700;
+}
+.generate-btn:hover {
+  background-color: transparent;
+  border-color: #a4ffaf;
+  color: #a4ffaf;
+}
+.generate-btn:hover img {
+  filter: invert(85%) sepia(47%) saturate(347%) hue-rotate(64deg)
+    brightness(103%) contrast(101%);
 }
